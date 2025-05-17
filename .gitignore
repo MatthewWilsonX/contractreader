@@ -1,0 +1,16 @@
+node_modules/
+__pycache__/
+.env
+*.py[cod]
+.claude
+*.so
+.env.local
+*.egg-info/
+.venv/
+CLAUDE.md
+dist/
+.DS_Store
+build/
+coverage/
+*.log
+.nyc_output
