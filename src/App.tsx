@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import AddressInput from './components/AddressInput';
+import { EthereumService } from './utils/ethereum';
 
 function App() {
+  const [loading, setLoading] = useState(false);
+  const [contractData, setContractData] = useState<any>(null);
+  const ethereumService = new EthereumService();
+
+  const handleAddressSubmit = async (address: string) => {
+    setLoading(true);
+    try {
+      console.log('Analyzing contract:', address);
+      const abi = await ethereumService.getContractABI(address);
+      setContractData({ address, abi });
+    } catch (error) {
+      console.error('Error analyzing contract:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -10,7 +29,13 @@ function App() {
       </header>
       <main className="App-main">
         <div className="container">
-          <p>Enter a contract address to get started</p>
+          <AddressInput onSubmit={handleAddressSubmit} loading={loading} />
+          {contractData && (
+            <div className="contract-info">
+              <h3>Contract: {contractData.address}</h3>
+              <p>Found {contractData.abi.length} ABI entries</p>
+            </div>
+          )}
         </div>
       </main>
     </div>
