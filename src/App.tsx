@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import AddressInput from './components/AddressInput';
+import ContractView from './components/ContractView';
 import { EthereumService } from './utils/ethereum';
 
 function App() {
@@ -30,10 +31,13 @@ function App() {
       <main className="App-main">
         <div className="container">
           <AddressInput onSubmit={handleAddressSubmit} loading={loading} />
-          {contractData && (
-            <div className="contract-info">
-              <h3>Contract: {contractData.address}</h3>
-              <p>Found {contractData.abi.length} ABI entries</p>
+          {contractData && contractData.abi.length > 0 && (
+            <ContractView address={contractData.address} abi={contractData.abi} />
+          )}
+          {contractData && contractData.abi.length === 0 && (
+            <div className="error-message">
+              <h3>No ABI found</h3>
+              <p>Could not retrieve ABI for this contract address.</p>
             </div>
           )}
         </div>

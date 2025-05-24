@@ -1,0 +1,153 @@
+.contract-view {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.contract-header {
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.contract-header h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.contract-address {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.contract-address .label {
+  font-weight: 500;
+}
+
+.contract-address code {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  word-break: break-all;
+}
+
+.contract-stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.section {
+  padding: 2rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+.section h3 {
+  margin: 0 0 1.5rem 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.function-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.function-item {
+  padding: 1rem;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  position: relative;
+}
+
+.function-item.read {
+  border-left-color: #28a745;
+  background: #f8fff9;
+}
+
+.function-item.write {
+  border-left-color: #ffc107;
+  background: #fffdf5;
+}
+
+.function-item.event {
+  border-left-color: #17a2b8;
+  background: #f0f9ff;
+}
+
+.function-name {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.function-signature {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.payable-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #dc3545;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .contract-view {
+    margin: 1rem;
+  }
+  
+  .contract-header {
+    padding: 1.5rem;
+  }
+  
+  .section {
+    padding: 1.5rem;
+  }
+  
+  .contract-stats {
+    padding: 1rem;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+  }
+}

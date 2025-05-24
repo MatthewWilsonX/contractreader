@@ -58,3 +58,22 @@
   margin: 0;
   color: #666;
 }
+
+.error-message {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #fff5f5;
+  border: 1px solid #fed7d7;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.error-message h3 {
+  margin: 0 0 0.5rem 0;
+  color: #c53030;
+}
+
+.error-message p {
+  margin: 0;
+  color: #744210;
+}
